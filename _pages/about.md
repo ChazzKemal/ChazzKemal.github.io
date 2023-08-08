@@ -12,7 +12,7 @@ Hi, I am Ediz!
 ------
 
 <p align="justify">
-I studied mechanical engineering at Boğaziçi University and graduated in January 2023.
+I am studying mechanical engineering at Bogazici University with expected completion date as January 2024.
 </p>
 
 <p align="justify">
@@ -22,11 +22,17 @@ In the <A HREF="/projects/">Projects</A> section, you can find summaries of the 
 ---
 
 <p align="justify">
-I love combining mathematics and software with my engineering knowledge. That's why I want to work on interdisciplinary research and projects that include these domains, such as computational modeling, machine learning, control and optimization. I also like to learn programming and computer tools that help me update this website and create content, such as Html, CSS, and I try to improve my coding skills in Python for data science and machine learning. 
+ChatGPT
+
+I have a strong passion for creating innovative and time-saving solutions. As a devoted mechanical engineer, I thrive on my curiosity about a multitude of subjects. This has naturally led me to specialize in robotics and additive manufacturing, areas in which I have pursued numerous graduate and online courses. At present, I am dedicated to leveraging my honed skills in practical projects within these realms.
+
+My proficiency spans Python and C++, tools I wield comfortably in robotics initiatives. This encompasses everything from microcontrollers to intricate deep learning models, as well as computational modeling, control systems, and optimization techniques.My enthusiasm not only rests in applying knowledge but also in delving into the profound principles that underlie the enchanting fabric of our universe.
 </p>
 
 <p align="justify">
-In my spare time, I enjoy participating in a wide range of sports, including tennis, basketball, and football. At my university, I engaged in various hobby clubs, such as dance, mountaineering, and skiing. My true passion lies in outdoor sports, particularly those that allow me to connect with nature and experience the world's beauty. In 2015, I started practicing kitesurfing and progressed to become an instructor over time. In the summer of 2020, I worked as a kitesurfing instructor in Izmir, Turkey, where I had the opportunity to teach people from different parts of the globe. Furthermore, I established a surfing community at my university in the fall of 2022 to introduce this exhilarating sport to more individuals and enjoy surfing together.
+During my leisure moments, I enjoy participating in a wide range of sports, including football, calisthenics, and bouldering. While at university, I enthusiastically participated in a multitude of hobby clubs, such as music, fine arts, and chess. My true passion lies in creating things and experiencing new stuff, particularly when it offers me the chance to engage with the world's innate beauty.
+
+From the earliest stages of self-discovery, I have been drawn to making melodies and writing songs. I currently have a band "Eser Miktarda" where I play guitar and sing. I was also a tenor in Bogazici University Jazz Choir for 3 years. Furthermore, I love drawing realistic charcoal drawings. It's the detailed nuances of this medium that particularly resonate with my aesthetic sensibilities, offering me a unique form of gratification.
 </p>
 
 
