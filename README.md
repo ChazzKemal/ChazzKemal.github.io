@@ -1,1 +1,1 @@
-This repository hosts my [Personal Website](https://edizferit.com/). Feel free to visit and learn more about me !
+This repository hosts my [Personal Website](https://alibaturk.com/). Feel free to visit and learn more about me !
