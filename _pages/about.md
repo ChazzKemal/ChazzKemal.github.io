@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-Hi, I am Ediz!
+Hi, I am Ali!
 ------
 
 <p align="justify">
@@ -22,8 +22,6 @@ In the <A HREF="/projects/">Projects</A> section, you can find summaries of the 
 ---
 
 <p align="justify">
-ChatGPT
-
 I have a strong passion for creating innovative and time-saving solutions. As a devoted mechanical engineer, I thrive on my curiosity about a multitude of subjects. This has naturally led me to specialize in robotics and additive manufacturing, areas in which I have pursued numerous graduate and online courses. At present, I am dedicated to leveraging my honed skills in practical projects within these realms.
 
 My proficiency spans Python and C++, tools I wield comfortably in robotics initiatives. This encompasses everything from microcontrollers to intricate deep learning models, as well as computational modeling, control systems, and optimization techniques.My enthusiasm not only rests in applying knowledge but also in delving into the profound principles that underlie the enchanting fabric of our universe.
