@@ -33,12 +33,3 @@ During my leisure moments, I enjoy participating in a wide range of sports, incl
 From the earliest stages of self-discovery, I have been drawn to making melodies and writing songs. I currently have a band "Eser Miktarda" where I play guitar and sing. I was also a tenor in Bogazici University Jazz Choir for 3 years. Furthermore, I love drawing realistic charcoal drawings. It's the detailed nuances of this medium that particularly resonate with my aesthetic sensibilities, offering me a unique form of gratification.
 </p>
 
-
-<center>
-<img src="/images/ab_kite.jpg" alt="Me Doing Kitesurf" style="height:400px; border-radius: 3px; margin-top: 8px; margin-bottom: 8px;"/>
-<img src="/images/ab_ski.jpg" alt="Me Skiing" style="height: 400px; border-radius: 3px; margin-top: 8px; margin-bottom: 8px;"/>
-</center>
-
-<center>
-<img src="/images/ab_likya.jpg" alt="Me on a Trekking Route" style="height: 340px; border-radius: 3px; margin-top: 8px; margin-bottom: 8px;"/>
-</center>
