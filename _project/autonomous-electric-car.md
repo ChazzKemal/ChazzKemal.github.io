@@ -15,9 +15,3 @@ date: 2021-04-03
 <img src="/images/burst_chassis.jpg" alt="Chassis of the Car during Construction" style="height:300px; border-radius: 3px; margin-top: 8px; margin-bottom: 8px;"/>
 <img src="/images/burst_weld.jpg" alt="Me Working on the Chassis" style="height: 300px; border-radius: 3px; margin-top: 8px; margin-bottom: 8px;"/>
 </center>
-
-
-<center>
-<img src="/images/burst_me.jpg" alt="A Photo From the Race Camp" style="height: 350px; border-radius: 3px; margin-top: 8px; margin-bottom: 8px;"/>
-</center>
-
