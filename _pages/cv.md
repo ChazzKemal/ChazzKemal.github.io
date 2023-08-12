@@ -43,7 +43,7 @@ a known problem in Conditional Neural Process methods.
 * **Turkish:**  Native
 
 ## Projects
-* TRubiks Cube Solver
+* Rubiks Cube Solving Robot
 * Flap Actuator
 * Gear Reducer
 * Automatic Pill Dispenser
@@ -55,6 +55,6 @@ a known problem in Conditional Neural Process methods.
 * RATT-CNMP -  a learning from demonstration architecture
 
 ## Student Club
-* **Core Team Member & Co-founder** - **Bogazici University Autonomous Systems Team** <br>
+* **Autonomous & Electronics Team Member** - **Bogazici University Autonomous Systems Team** <br>
 * **Tenor, Jazz Choir** - **Bogazici University Music Club** <br>
 * **Treasurer, Charcoal Drawing** - **Bogazici University Fine-Arts Club** <br>
