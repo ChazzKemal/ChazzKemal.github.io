@@ -32,4 +32,9 @@ During my leisure moments, I enjoy participating in a wide range of sports, incl
 
 From the earliest stages of self-discovery, I have been drawn to making melodies and writing songs. I currently have a band "Eser Miktarda" where I play guitar and sing. I was also a tenor in Bogazici University Jazz Choir for 3 years. Furthermore, I love drawing realistic charcoal drawings. It's the detailed nuances of this medium that particularly resonate with my aesthetic sensibilities, offering me a unique form of gratification.
 </p>
+[![Video](https://img.youtube.com/vi/tg1l8wEdUa8/0.jpg)](https://www.youtube.com/watch?v=tg1l8wEdUa8&ab_channel=alibaturkarakulluk%C3%A7u)
+
+
+<img src="https://github.com/ChazzKemal/ChazzKemal.github.io/assets/71472091/aa4e9677-8fc3-4a5b-98b0-bdaf827b9b24" width="300">
+
 
