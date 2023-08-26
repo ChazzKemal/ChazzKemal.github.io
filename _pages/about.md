@@ -12,7 +12,7 @@ Hi, I am Ali!
 ------
 
 <p align="justify">
-I am studying mechanical engineering at Bogazici University with expected completion date as January 2024.
+I am studying mechanical engineering at Bogazici University with expected completion date as January 2024. THE PAGE IS UNDER CONSTRUCTION but i recommend clicking the image below to listent to my favourite original song in acoustic :)
 </p>
 
 <p align="justify">
