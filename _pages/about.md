@@ -34,12 +34,13 @@ From the earliest stages of self-discovery, I have been drawn to making melodies
 </p>
 <div style="display: flex; align-items: center;">
     <a href="https://www.youtube.com/watch?v=tg1l8wEdUa8&ab_channel=alibaturkarakulluk%C3%A7u" style="flex: 1;">
-        <img src="https://img.youtube.com/vi/tg1l8wEdUa8/0.jpg" alt="Video Thumbnail" width="300">
+        <img src="https://img.youtube.com/vi/tg1l8wEdUa8/0.jpg" alt="Video Thumbnail" width="300" height="500">
     </a>
     <div style="flex: 1;">
-        <img src="https://github.com/ChazzKemal/ChazzKemal.github.io/assets/71472091/aa4e9677-8fc3-4a5b-98b0-bdaf827b9b24" alt="Image" width="300">
+        <img src="https://github.com/ChazzKemal/ChazzKemal.github.io/assets/71472091/aa4e9677-8fc3-4a5b-98b0-bdaf827b9b24" alt="Image" width="300" height="500">
     </div>
 </div>
+
 
 
 
