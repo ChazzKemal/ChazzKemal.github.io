@@ -13,7 +13,35 @@ CNMP is a learning-from-demonstration model that can given the conditions,(task 
 <br />
 
 For each condition point the encoder creates a latent vector, and after every condition point is encoded in latent space, these vectors are aggregated. Aggregated vector is concatenated with the query time point and the decoded vector output becomes the trajectory output at that certain time.
-CNMP has some some room to grow as such:
+
+I initally wanted to implement attentive version of the CNMP by changing the encoder. The architecture I implemented was like this:
+
+<center>
+    <img src="/images/RATTCNMP_model_architecture.png" alt="Model Architecture">
+    <br>
+</center>
+
+We have compared the model with CNMP in a box pushing environment. The reward points were calculated by accumulation of how close the box is to the target point through time.
+
+<center>
+<video class="projectVideo" muted autoplay loop  width="640" height="400">
+  <source src="/videos/robot_demo.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+</center>
+
+The reward plots showed a dominant performance boost over the vanilla-CNMP.
+
+
+<center>
+    <img src="/images/CNMP_single_case.jpeg" alt="First Image" style="width: 48%;">
+    <img src="/images/attention_cnp_single_case.jpeg" alt="Second Image" style="width: 48%;">
+    <em>Reward through time: CNMP(left) vs Attention-CNMP</em>
+</center>
+
+
+<br>
+I knew that we can further improve CNMP in areas such as:
 
 - **Blending**: Since you want to find the trajectory that is represented by condition points, if the trajectory is a mixture of primitives,the model fails. You can see it in the figure below. When you teach the orange and blue demonstrations to the model, the trajectory is guessed wrong if you give the start of the orange and the end as blue. 
 <br />
@@ -58,10 +86,10 @@ $$
 <br />
 
 
-- **Uncertainity**: Information doesn't necessarily have to be complete. In CNMP, your conditioning points needs to give every type of information while training. So basically, I will train the model to have a drop out at the initial layer depending on a condition. This way I can also execute a correctifying trajectory between the condition points, where when standard deviation is high sudden jumps could occur. This part is why I still didn't published a paper. 
+- **Uncertainity**: Information doesn't necessarily have to be complete. In CNMP, your conditioning points needs to give every type of information while training. So basically, I will train the model to have a drop out at the initial layer depending on a condition. This way I can also execute a correctifying trajectory between the condition points, to avoid high deviation jumps while transitioning between trajectories. This part is why I still didn't published a paper. 
 
 
-We can use the current model to creates a dance choreography by teaching every dance move seperately like the image below:
+Meanwhile, we can use the current model to creates a dance choreography by teaching every dance move seperately like the image below:
 
 <center>
 <video class="projectVideo" muted autoplay loop>
