@@ -12,11 +12,11 @@ Hi, I am Ali!
 ------
 
 <p align="justify">
-I am currently pursuing a degree in Mechanical Engineering at Bogazici University, with an anticipated graduation date of January 2024.
+I am a graduate student in Mechatronics &amp; Robotics at the Technical University of Munich (TUM), after my BSc in Mechanical Engineering at Boğaziçi University in Istanbul.
 </p>
 
 <p align="justify">
-I am presently engaged in research focusing on Conditional Neural Movement Primitives. My work primarily revolves around decision making in uncertainty and learning multimodal demonstrations, with a specific emphasis on  blending of these demonstrations.
+I am interested in dexterous manipulation, reinforcement learning, and generative models. I have worked with various robots, including the iiwa, Franka, UR10, drones, and Super Megabot.
 </p>
 
 <p align="justify">

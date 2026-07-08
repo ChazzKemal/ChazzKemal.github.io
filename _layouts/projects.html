@@ -3,33 +3,21 @@
   <head>
     {% include head.html %}
     {% include head/custom.html %}
-    <title>Ediz Ferit Kula</title>
   </head>
 
   <body>
     {% include masthead.html %}
-    <div style="display: flex;
-                flex-direction: row;
-                justify-content: center;
-                height: 60px;
-                font-size: 25px;
-                font-weight: 600;
-                margin-top: 20px;
-                align-items: center;">
-      PROJECTS
-    </div>
+
     <main class="page-content" aria-label="Content">
-      <section class="chapters cf">
-        <div class="wrapper-bef flex-row-bef">
-          {{ content }}
-        </div>
-      </section>
+      {{ content }}
     </main>
+
     <div class="page__footer">
       <footer>
         {% include footer.html %}
       </footer>
     </div>
+
     {% include scripts.html %}
   </body>
 </html>

@@ -3,8 +3,9 @@ main:
   - title: "About"
     url: /about/
 
-  - title: "CV"
-    url: /cv/
-
   - title: "Projects"
     url: /projects/
+
+  # Hidden for now — re-enable when ready:
+  # - title: "CV"
+  #   url: /cv/
