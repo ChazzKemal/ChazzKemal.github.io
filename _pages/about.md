@@ -26,10 +26,7 @@ In the <A HREF="/projects/">Projects</A> section, you can find summaries of the 
 ---
 
 <p align="justify">
-During my leisure moments, I enjoy participating in a wide range of sports, including football, calisthenics, and bouldering. While at university, I enthusiastically participated in a multitude of hobby clubs, such as music, fine arts, and chess. My true passion lies in creating things and experiencing new stuff, particularly when it offers me the chance to engage with the world's innate beauty.
-</p>
-<p align="justify">
-From the earliest stages of self-discovery, I have been drawn to making melodies and writing songs. I currently have a band "Eser Miktarda" where I contribute as the guitarist and lead vocalist. I was also a tenor in Bogazici University Jazz Choir for 3 years. Furthermore, I enjoy creating realistic drawings using charcoal.
+During my leisure moments, I enjoy participating in a wide range of sports, including football, calisthenics, and bouldering. From the earliest stages of self-discovery, I have been drawn to making melodies and writing songs. I currently have a band "Eser Miktarda" where I contribute as the guitarist and lead vocalist. I was also a tenor in Bogazici University Jazz Choir for 3 years. Furthermore, I enjoy creating realistic drawings using charcoal.
 </p>
 
 <p align="justify">
