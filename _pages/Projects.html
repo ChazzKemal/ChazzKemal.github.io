@@ -64,11 +64,6 @@ permalink: /projects/
 .reel-slide{position:absolute; inset:0; opacity:0; transition:opacity .5s ease; pointer-events:none; background:#0c0c0d; display:flex; align-items:center; justify-content:center}
 .reel-slide.on{opacity:1; pointer-events:auto}
 .reel-slide video{width:100%; height:100%; object-fit:contain; display:block; background:#0c0c0d}
-.reel-badge{
-  position:absolute; top:12px; left:14px; z-index:3; font-size:10px; letter-spacing:.14em; text-transform:uppercase;
-  color:#fff; background:rgba(0,0,0,.42); border:1px solid rgba(255,255,255,.18); padding:5px 10px; border-radius:20px; backdrop-filter:blur(6px);
-}
-.reel-badge b{color:#ffb9c4; font-weight:700}
 .reel-prog{position:absolute; left:0; bottom:0; height:3px; width:0; background:var(--r-rose); z-index:4}
 
 .reel-info{display:grid; grid-template-columns:auto 1fr; gap:0 24px; align-items:start; margin-top:1.6rem}
@@ -142,8 +137,6 @@ permalink: /projects/
     v.src=DIR+p.file; v.muted=true; v.loop=true; v.playsInline=true; v.setAttribute('playsinline','');
     v.preload=i===0?'auto':'metadata'; v.poster=DIR+p.file.replace('.mp4','.jpg');
     s.appendChild(v);
-    var b=document.createElement('div'); b.className='reel-badge'; b.innerHTML='<b>'+pad(i+1)+'</b> · 5-sec cut';
-    s.appendChild(b);
     var pr=document.createElement('div'); pr.className='reel-prog'; s.appendChild(pr);
     stage.appendChild(s); vids.push({slide:s,video:v,prog:pr});
 
