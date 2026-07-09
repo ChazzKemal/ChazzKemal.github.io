@@ -17,7 +17,7 @@ permalink: /projects/
   </div>
 
   <div class="reel-info">
-    <div class="reel-bignum"><span id="rNum">01</span><span class="reel-tot">/08</span></div>
+    <div class="reel-bignum"><span id="rNum">01</span><span class="reel-tot" id="rTot">/08</span></div>
     <div class="reel-meta">
       <div class="reel-titlerow">
         <span class="reel-year" id="rYear"></span>
@@ -30,7 +30,7 @@ permalink: /projects/
 
   <div class="reel-controls">
     <button class="reel-play" id="rPlay"><span class="ic">&#9658;</span> <span id="rPlayLabel">Auto-play</span></button>
-    <span class="reel-counter" id="rCounter">01 / 08</span>
+    <span class="reel-counter" id="rCounter">01 / 09</span>
     <span class="reel-keys">&larr; &rarr; to browse</span>
   </div>
 
@@ -153,7 +153,11 @@ permalink: /projects/
   var elNum=document.getElementById('rNum'), elYear=document.getElementById('rYear'),
       elTitle=document.getElementById('rTitle'), elTags=document.getElementById('rTags'),
       elCap=document.getElementById('rCap'), elCounter=document.getElementById('rCounter'),
+      elTot=document.getElementById('rTot'),
       playBtn=document.getElementById('rPlay'), playLabel=document.getElementById('rPlayLabel');
+
+  var TOT=pad(projects.length);
+  if(elTot) elTot.textContent='/'+TOT;
 
   function render(i){
     var p=projects[i];
@@ -161,7 +165,7 @@ permalink: /projects/
     elYear.textContent=p.year;
     elTitle.textContent=p.title;
     elCap.textContent=p.cap;
-    elCounter.textContent=pad(i+1)+' / 08';
+    elCounter.textContent=pad(i+1)+' / '+TOT;
     elTags.innerHTML=''; p.tags.forEach(function(tg){var e=document.createElement('span'); e.className='reel-tag'; e.textContent=tg; elTags.appendChild(e);});
     var ts=thumbs.querySelectorAll('.reel-thumb'); for(var k=0;k<ts.length;k++) ts[k].classList.toggle('on',k===i);
   }
