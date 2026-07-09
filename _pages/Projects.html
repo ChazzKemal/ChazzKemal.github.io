@@ -112,23 +112,23 @@ permalink: /projects/
   var DIR = "{{ '/assets/reel/' | relative_url }}";
   var projects = [
     {file:"02_speedup.mp4",    year:"2025", title:"PACE",                  tags:["Real Robot","UR10e","Manipulation"],
-     cap:"A training-free method that speeds up learned-policy execution by up to 3× on a real UR10e."},
+     cap:"Speeds up a learned policy's execution by up to 3× on a real UR10e, with no extra training."},
     {file:"05_rlpolicy.mp4",   year:"2025", title:"GORL Grasp Optimization", tags:["MuJoCo","PPO","Dexterous"],
      cap:"A dexterous grasping policy trained with PPO in a custom MuJoCo environment."},
     {file:"01_rfmgrasp.mp4",   year:"2025", title:"RFM-Grasp",             tags:["SE(3)","Flow Matching","Grasping"],
-     cap:"Grasp generation via flow matching directly on the SE(3) manifold — ~99% success on unseen ACRONYM objects within 10 samples."},
+     cap:"Grasp generation via flow matching directly on the SE(3) manifold, reaching ~99% success on unseen ACRONYM objects within 10 samples."},
     {file:"06_exploration.mp4",year:"2025", title:"Cave Exploration Drone",tags:["SE(3) Control","ROS","Mapping"],
      cap:"Autonomous cave exploration with an SE(3) geometric controller and skeletonized occupancy maps for junction detection."},
     {file:"09_rescue.mp4",     year:"2025", title:"Search & Rescue Robot", tags:["Autonomous Nav","SLAM","Artifact Detection"],
-     cap:"Autonomous exploration of a collapsed-building course — mapping unknown terrain and detecting rescue artifacts on the fly."},
+     cap:"Autonomous exploration of a collapsed building course, mapping unknown terrain and detecting rescue artifacts on the fly."},
     {file:"03_car.mp4",        year:"2021", title:"BURST Autonomous Car",  tags:["Perception","Control","TEKNOFEST"],
-     cap:"Autonomous vehicle with real-time perception and control — TEKNOFEST 2021 Most Original Software award."},
+     cap:"Autonomous vehicle with real time perception and control, winner of the TEKNOFEST 2021 Most Original Software award."},
     {file:"08_rbik.mp4",       year:"2023", title:"Rubik's Cube Robot",    tags:["Hardware","Mechatronics","Control"],
-     cap:"A Rubik's-cube-solving robot built end-to-end — mechanism, electronics, and control stack."},
+     cap:"A Rubik's cube solving robot built entirely from scratch, including the mechanism, electronics, and control stack."},
     {file:"04_drawbot.mp4",    year:"2024", title:"Drawing Robot",         tags:["Motion Planning","KOMO","Perception"],
      cap:"A robot arm that plans each stroke as a KOMO optimization problem, drawing from visual perception alone."},
-    {file:"07_cnmp.mp4",       year:"2023", title:"CNMP Motion Blending",  tags:["Learning-from-Demo","CNMP","Attention"],
-     cap:"Locally-weighted Conditional Neural Movement Primitives blending human demonstrations into new motions."}
+    {file:"07_cnmp.mp4",       year:"2023", title:"CNMP Motion Blending",  tags:["Learning from Demo","CNMP","Attention"],
+     cap:"Locally weighted Conditional Neural Movement Primitives that blend human demonstrations into new motions."}
   ];
 
   var stage=document.getElementById('rStage'), thumbs=document.getElementById('rThumbs');
