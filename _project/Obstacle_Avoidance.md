@@ -6,9 +6,7 @@ date: 2022-04-03
 ---
 
 
-<center>
-    <iframe width="640" height="400" src="https://www.youtube.com/embed/jn4fmIsK9Mw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</center>
+{% include project/youtube.html width="640" height="400" src="https://www.youtube.com/embed/jn4fmIsK9Mw" %}
 
 
 
@@ -58,4 +56,3 @@ Here we implemented the APF by getting the obstacle positions through RGB-D came
 
 
 ---
-

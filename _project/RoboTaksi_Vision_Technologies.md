@@ -8,19 +8,12 @@ date: 2021-04-03
 ## Vision Algorithms and Communication Systems of BURST Autonomous Vehicles
 The RoboTaksi project requires the students to complete a predefined track. Two important aspects of this project were the vision algorithms and control of the car:
 
-<center>
-<video class="projectVideo" muted autoplay loop>
-  <source src="/videos/autonomous_car_shorten.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-</center>
+{% include project/video.html src="/videos/autonomous_car_shorten.mp4" %}
 
 ### YOLOv3 Model in Simulation
 For the object detection, YOLOv3, a CNN model was used. It basically divides the image into a grid and predicts bounding boxes and class probabilities for each grid cell simultaneously. The images to train the model were obtained from the simulation as well as the real-life datasets.
 
-<center>
-<img src="/images/YOLOv3_simulation.jpg" alt="YOLOv3 Model in Simulation">
-</center>
+{% include project/figure.html src="/images/YOLOv3_simulation.jpg" alt="YOLOv3 Model in Simulation" -%}
 <br />
 
 
@@ -116,4 +109,3 @@ In summary, the front arduino sketch manages the vehicle's steering, acceleratio
 
 
 ---
-

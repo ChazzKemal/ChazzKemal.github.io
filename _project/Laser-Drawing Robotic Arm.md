@@ -5,9 +5,7 @@ collection: project
 date: 2022-04-03
 ---
 
-<center>
-    <iframe width="640" height="400" src="https://www.youtube.com/embed/E3bSRnSi4Ag" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</center>
+{% include project/youtube.html width="640" height="400" src="https://www.youtube.com/embed/E3bSRnSi4Ag" %}
 
 
 
@@ -65,4 +63,3 @@ In this project, the steps I used to achieve this movement was to:
 
 
 ---
-
