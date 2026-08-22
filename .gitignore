@@ -1,2 +1,11 @@
 _site/
+.vs/
+.bundle/
+vendor/bundle/
+node_modules/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+.env
+.env.*
 
