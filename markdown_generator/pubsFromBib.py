@@ -37,6 +37,7 @@ for pubsource in publist:
         b = bibdata.entries[bib_id].fields
 
         try:
+            b["year"]
             pub_date = bibtex_pub_date(b)
             url_slug = bibtex_url_slug(b["title"])
             md_filename, html_filename = build_filenames(
