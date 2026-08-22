@@ -65,6 +65,10 @@ permalink: /projects/
 .reel-slide.on{opacity:1; pointer-events:auto}
 .reel-slide video{width:100%; height:100%; object-fit:contain; display:block; background:#0c0c0d}
 .reel-prog{position:absolute; left:0; bottom:0; height:3px; width:0; background:var(--r-rose); z-index:4}
+.reel-slide.failed video{display:none}
+.reel-slide .reel-err{display:none; color:#d3d6da; font-size:.9rem; letter-spacing:.03em; text-align:center; padding:0 1.2rem}
+.reel-slide.failed .reel-err{display:block}
+.reel-thumb.failed img{visibility:hidden}
 
 .reel-info{display:grid; grid-template-columns:auto 1fr; gap:0 24px; align-items:start; margin-top:1.6rem}
 .reel-bignum{font-size:3.4rem; font-weight:300; line-height:.85; color:var(--r-rose); letter-spacing:-.03em; font-variant-numeric:tabular-nums}
@@ -109,6 +113,11 @@ permalink: /projects/
 <script>
 (function(){
   "use strict";
+
+  function logError(msg, err){
+    if(window.console && console.error) console.error('[projects reel] '+msg, err || '');
+  }
+
   var DIR = "{{ '/assets/reel/' | relative_url }}";
   var projects = [
     {file:"02_speedup.mp4",    year:"2025", title:"PACE",                  tags:["Real Robot","UR10e","Manipulation"],
@@ -131,7 +140,25 @@ permalink: /projects/
      cap:"Locally weighted Conditional Neural Movement Primitives that blend human demonstrations into new motions."}
   ];
 
-  var stage=document.getElementById('rStage'), thumbs=document.getElementById('rThumbs');
+  function pad(n){return (n<10?'0':'')+n;}
+
+  var ids=['rStage','rThumbs','rNum','rYear','rTitle','rTags','rCap','rCounter','rTot','rPlay','rPlayLabel','rNext','rPrev'];
+  var el={}, missing=[];
+  ids.forEach(function(id){
+    el[id]=document.getElementById(id);
+    if(!el[id]) missing.push(id);
+  });
+  if(missing.length){
+    logError('cannot initialise, missing element(s): '+missing.join(', '));
+    return;
+  }
+
+  var stage=el.rStage, thumbs=el.rThumbs;
+  var cur=0, auto=false, timer=null;
+  var elNum=el.rNum, elYear=el.rYear, elTitle=el.rTitle, elTags=el.rTags,
+      elCap=el.rCap, elCounter=el.rCounter, elTot=el.rTot,
+      playBtn=el.rPlay, playLabel=el.rPlayLabel;
+
   var vids=[];
   projects.forEach(function(p,i){
     var s=document.createElement('div'); s.className='reel-slide';
@@ -139,25 +166,40 @@ permalink: /projects/
     v.src=DIR+p.file; v.muted=true; v.loop=true; v.playsInline=true; v.setAttribute('playsinline','');
     v.preload=i===0?'auto':'metadata'; v.poster=DIR+p.file.replace('.mp4','.jpg');
     s.appendChild(v);
+    var err=document.createElement('p'); err.className='reel-err';
+    err.textContent='This clip could not be loaded.'; s.appendChild(err);
     var pr=document.createElement('div'); pr.className='reel-prog'; s.appendChild(pr);
-    stage.appendChild(s); vids.push({slide:s,video:v,prog:pr});
+    stage.appendChild(s);
+    var entry={slide:s,video:v,prog:pr,failed:false};
+    vids.push(entry);
+    v.addEventListener('error',function(){ markFailed(i, v.error); });
 
     var t=document.createElement('button'); t.className='reel-thumb'; t.type='button';
-    t.innerHTML='<img src="'+DIR+p.file.replace('.mp4','.jpg')+'" alt="'+p.title+'"><span class="tn">'+pad(i+1)+'</span>';
+    var img=document.createElement('img');
+    img.src=DIR+p.file.replace('.mp4','.jpg'); img.alt=p.title;
+    img.addEventListener('error',function(){
+      t.classList.add('failed');
+      logError('poster image failed to load: '+img.src);
+    });
+    var tn=document.createElement('span'); tn.className='tn'; tn.textContent=pad(i+1);
+    t.appendChild(img); t.appendChild(tn);
+    entry.thumb=t;
     t.addEventListener('click',function(){ if(auto)setAuto(false); go(i); });
     thumbs.appendChild(t);
   });
-  function pad(n){return (n<10?'0':'')+n;}
-
-  var cur=0, auto=false, timer=null;
-  var elNum=document.getElementById('rNum'), elYear=document.getElementById('rYear'),
-      elTitle=document.getElementById('rTitle'), elTags=document.getElementById('rTags'),
-      elCap=document.getElementById('rCap'), elCounter=document.getElementById('rCounter'),
-      elTot=document.getElementById('rTot'),
-      playBtn=document.getElementById('rPlay'), playLabel=document.getElementById('rPlayLabel');
 
   var TOT=pad(projects.length);
-  if(elTot) elTot.textContent='/'+TOT;
+  elTot.textContent='/'+TOT;
+
+  function markFailed(i, mediaError){
+    var o=vids[i];
+    if(!o || o.failed) return;
+    o.failed=true;
+    o.slide.classList.add('failed');
+    if(o.thumb) o.thumb.classList.add('failed');
+    logError('video failed to load: '+o.video.src+(mediaError?' (code '+mediaError.code+')':''), mediaError && mediaError.message);
+    if(i===cur && auto) go(cur+1);
+  }
 
   function render(i){
     var p=projects[i];
@@ -170,15 +212,32 @@ permalink: /projects/
     var ts=thumbs.querySelectorAll('.reel-thumb'); for(var k=0;k<ts.length;k++) ts[k].classList.toggle('on',k===i);
   }
   function stopAll(){
-    vids.forEach(function(o){o.slide.classList.remove('on'); o.prog.style.transition='none'; o.prog.style.width='0'; try{o.video.pause(); o.video.currentTime=0;}catch(e){}});
+    vids.forEach(function(o){
+      o.slide.classList.remove('on'); o.prog.style.transition='none'; o.prog.style.width='0';
+      try{ o.video.pause(); o.video.currentTime=0; }
+      catch(e){ logError('could not reset '+o.video.src, e); }
+    });
     if(timer){clearTimeout(timer); timer=null;}
   }
   function go(i){
     i=(i+projects.length)%projects.length; stopAll(); cur=i;
     var o=vids[i]; o.slide.classList.add('on'); render(i);
-    var pv=o.video.play(); if(pv&&pv.catch) pv.catch(function(){});
+    play(o, i);
     var nx=vids[(i+1)%projects.length].video; if(nx.preload!=='auto') nx.preload='auto';
     if(auto) startDwell(o);
+  }
+  function play(o, i){
+    var pv;
+    try{ pv=o.video.play(); }
+    catch(e){ logError('could not start '+o.video.src, e); return; }
+    if(!pv || typeof pv.catch!=='function') return;
+    pv.catch(function(e){
+      var name=e && e.name;
+      // Autoplay policy rejections are expected before the first user gesture.
+      if(name==='NotAllowedError' || name==='AbortError') return;
+      if(name==='NotSupportedError'){ markFailed(i, o.video.error); return; }
+      logError('playback failed for '+o.video.src, e);
+    });
   }
   function startDwell(o){
     if(!auto) return;
@@ -192,12 +251,13 @@ permalink: /projects/
   function setAuto(on){
     auto=on; playBtn.classList.toggle('off',!on);
     playLabel.textContent=on?'Playing…':'Auto-play';
-    playBtn.querySelector('.ic').innerHTML=on?'&#10074;&#10074;':'&#9658;';
+    var ic=playBtn.querySelector('.ic');
+    if(ic) ic.innerHTML=on?'\u275A\u275A':'\u25B6'; else logError('play button icon element is missing');
     if(on) startDwell(vids[cur]); else { if(timer){clearTimeout(timer); timer=null;} vids[cur].prog.style.transition='none'; vids[cur].prog.style.width='0'; }
   }
 
-  document.getElementById('rNext').addEventListener('click',function(){ if(auto)setAuto(false); go(cur+1); });
-  document.getElementById('rPrev').addEventListener('click',function(){ if(auto)setAuto(false); go(cur-1); });
+  el.rNext.addEventListener('click',function(){ if(auto)setAuto(false); go(cur+1); });
+  el.rPrev.addEventListener('click',function(){ if(auto)setAuto(false); go(cur-1); });
   playBtn.addEventListener('click',function(){ setAuto(!auto); });
   document.addEventListener('keydown',function(e){
     if(e.target && /INPUT|TEXTAREA/.test(e.target.tagName)) return;

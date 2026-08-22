@@ -23,6 +23,7 @@ import string
 import html
 import os
 import re
+import sys
 
 #todo: incorporate different collection types rather than a catch all publications, requires other changes to template
 publist = {
@@ -54,9 +55,22 @@ def html_escape(text):
     return "".join(html_escape_table.get(c,c) for c in text)
 
 
+outdir = "../_publications"
+os.makedirs(outdir, exist_ok=True)
+
+failures = []
+
 for pubsource in publist:
+    bibfile = publist[pubsource]["file"]
     parser = bibtex.Parser()
-    bibdata = parser.parse_file(publist[pubsource]["file"])
+    try:
+        bibdata = parser.parse_file(bibfile)
+    except Exception as e:
+        # An unreadable or malformed bib file drops every entry of this source,
+        # so report it and keep going with the remaining sources.
+        print(f'ERROR could not parse {bibfile}: {e}', file=sys.stderr)
+        failures.append(f'{bibfile}: {e}')
+        continue
 
     #loop through the individual references in a given bibtex file
     for bib_id in bibdata.entries:
@@ -151,10 +165,24 @@ for pubsource in publist:
 
             md_filename = os.path.basename(md_filename)
 
-            with open("../_publications/" + md_filename, 'w') as f:
+            with open(os.path.join(outdir, md_filename), 'w') as f:
                 f.write(md)
             print(f'SUCESSFULLY PARSED {bib_id}: \"', b["title"][:60],"..."*(len(b['title'])>60),"\"")
         # field may not exist for a reference
         except KeyError as e:
-            print(f'WARNING Missing Expected Field {e} from entry {bib_id}: \"', b["title"][:30],"..."*(len(b['title'])>30),"\"")
+            title = str(b["title"]) if "title" in b.keys() else "<no title>"
+            print(f'WARNING Missing Expected Field {e} from entry {bib_id}: "'
+                  + title[:30] + "..."*(len(title)>30) + '"', file=sys.stderr)
+            failures.append(f'{bib_id}: missing field {e}')
             continue
+        except OSError as e:
+            print(f'ERROR could not write markdown for {bib_id}: {e}', file=sys.stderr)
+            failures.append(f'{bib_id}: {e}')
+            continue
+
+if failures:
+    print(f'\n{len(failures)} entr{"y" if len(failures)==1 else "ies"} could not be generated:',
+          file=sys.stderr)
+    for detail in failures:
+        print(f'  - {detail}', file=sys.stderr)
+    sys.exit(1)
