@@ -41,11 +41,15 @@ def test_talk_html_escape_preserves_non_string_quirk():
         ({"year": "2024", "month": "M"}, "2024-0M-01"),
         ({"year": "2024", "month": 3}, "2024-03-01"),
         ({"year": "2024"}, "2024-01-01"),
-        ({}, "1900-01-01"),
     ],
 )
 def test_bibtex_pub_date_normalizes_months_and_missing_fields(fields, expected):
     assert bibtex_pub_date(fields) == expected
+
+
+def test_bibtex_pub_date_requires_year():
+    with pytest.raises(KeyError):
+        bibtex_pub_date({"month": "1"})
 
 
 def test_bibtex_title_cleaning_and_slug():

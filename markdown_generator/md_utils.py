@@ -27,7 +27,7 @@ def html_escape_talk(text):
 
 def bibtex_pub_date(fields):
     """Build a publication date using the BibTeX generator's defaults."""
-    pub_year = f'{fields.get("year", "1900")}'
+    pub_year = f'{fields["year"]}'
     pub_month = "01"
     pub_day = "01"
 
