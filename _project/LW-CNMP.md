@@ -7,28 +7,18 @@ date: 2023-04-03
 
 ## CNMP, and how to solve it's weaknesses:
 CNMP is a learning-from-demonstration model that can given the conditions,(task specific information, positions at certain time) create a trajectory where each point in time is represented with a mean and and standard deviation(how unsure the model is):
-<center>
-<img src="/images/CNMP_explaination.png" alt="YOLOv3 Model in Simulation">
-</center>
+{% include project/figure.html src="/images/CNMP_explaination.png" alt="YOLOv3 Model in Simulation" -%}
 <br />
 
 For each condition point the encoder creates a latent vector, and after every condition point is encoded in latent space, these vectors are aggregated. Aggregated vector is concatenated with the query time point and the decoded vector output becomes the trajectory output at that certain time.
 
 I initally wanted to implement attentive version of the CNMP by changing the encoder. The architecture I implemented was like this:
 
-<center>
-    <img src="/images/RATTCNMP_model_architecture.png" alt="Model Architecture">
-    <br>
-</center>
+{% include project/figure.html src="/images/RATTCNMP_model_architecture.png" alt="Model Architecture" line_break=true -%}
 
 We have compared the model with CNMP in a box pushing environment. The reward points were calculated by accumulation of how close the box is to the target point through time.
 
-<center>
-<video class="projectVideo" muted autoplay loop  width="640" height="400">
-  <source src="/videos/robot_demo.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-</center>
+{% include project/video.html src="/videos/robot_demo.mp4" width="640" height="400" %}
 
 The reward plots showed a dominant performance boost over the vanilla-CNMP.
 
@@ -67,9 +57,7 @@ $$
 
 
 
-<center>
-<img src="/images/tanh-1.png" alt="YOLOv3 Model in Simulation">
-</center>
+{% include project/figure.html src="/images/tanh-1.png" alt="YOLOv3 Model in Simulation" -%}
 <br />
 
 
@@ -80,9 +68,7 @@ $$
 * Select the closest demonstration from the memory and execute it.
 
 
-<center>
-<img src="/images/grid_lw.jpg" alt="YOLOv3 Model in Simulation">
-</center>
+{% include project/figure.html src="/images/grid_lw.jpg" alt="YOLOv3 Model in Simulation" -%}
 <br />
 
 
@@ -91,14 +77,8 @@ $$
 
 Meanwhile, we can use the current model to creates a dance choreography by teaching every dance move seperately like the image below:
 
-<center>
-<video class="projectVideo" muted autoplay loop>
-  <source src="/videos/lw_cnmp_mix_dance.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-</center>
+{% include project/video.html src="/videos/lw_cnmp_mix_dance.mp4" %}
 
 
 
 ---
-
